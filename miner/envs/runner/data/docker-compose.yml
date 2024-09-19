@@ -26,7 +26,7 @@ services:
       <<: *logging
 
   app:
-    image: backenddevelopersltd/${MINER_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
+    image: kkowalskireef/${MINER_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
     pull_policy: always
     healthcheck:
       test: wget -q --spider 127.0.0.1:8000/admin/login/ || exit 1
@@ -54,7 +54,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   celery-worker:
-    image: backenddevelopersltd/${MINER_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
+    image: kkowalskireef/${MINER_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
     pull_policy: always
     init: true
     healthcheck:
@@ -82,7 +82,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   celery-beat:
-    image: backenddevelopersltd/${MINER_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
+    image: kkowalskireef/${MINER_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
     pull_policy: always
     init: true
     restart: unless-stopped
@@ -103,7 +103,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   nginx:
-    image: backenddevelopersltd/${MINER_NGINX_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
+    image: kkowalskireef/${MINER_NGINX_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
     restart: unless-stopped
     healthcheck:
       test: wget -q --spider 0.0.0.0:80/admin/login/ || exit 1
@@ -129,11 +129,11 @@ services:
       "--keep", "^postgres:14.0-alpine",
       "--keep", "^containrrr/watchtower",
       "--keep", "^stephanmisc/docuum:0.23.1",
-      "--keep", "^backenddevelopersltd/compute-horde-miner-runner:v0-latest",
-      "--keep", "^backenddevelopersltd/${MINER_IMAGE_REPO}:v0-(latest|preprod)",
-      "--keep", "^backenddevelopersltd/compute-horde-miner-nginx:v0-latest",
-      "--keep", "^backenddevelopersltd/${MINER_NGINX_IMAGE_REPO}:v0-(latest|preprod)",
-      "--keep", "^backenddevelopersltd/compute-horde-job:v0-latest",
+      "--keep", "^kkowalskireef/compute-horde-miner-runner:v0-latest",
+      "--keep", "^kkowalskireef/${MINER_IMAGE_REPO}:v0-(latest|preprod)",
+      "--keep", "^kkowalskireef/compute-horde-miner-nginx:v0-latest",
+      "--keep", "^kkowalskireef/${MINER_NGINX_IMAGE_REPO}:v0-(latest|preprod)",
+      "--keep", "^kkowalskireef/compute-horde-job:v0-latest",
       "--keep", "^us-central1-docker.pkg.dev/twistlock-secresearch/public/can-ctr-escape-cve-2022-0492:latest",
     ]
     init: true
@@ -145,11 +145,11 @@ services:
       <<: *logging
 
   dct-pull:
-    image: backenddevelopersltd/compute-horde-dct-pull:v0-latest
+    image: kkowalskireef/compute-horde-dct-pull:v0-latest
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: backenddevelopersltd/compute-horde-dct-pull:v0-latest backenddevelopersltd/${MINER_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest} backenddevelopersltd/${MINER_NGINX_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
+    command: kkowalskireef/compute-horde-dct-pull:v0-latest kkowalskireef/${MINER_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest} kkowalskireef/${MINER_NGINX_IMAGE_REPO}:${MINER_IMAGE_TAG:-v0-latest}
     logging:
       <<: *logging
     labels:

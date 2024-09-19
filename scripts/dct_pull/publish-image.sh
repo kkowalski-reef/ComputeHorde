@@ -3,7 +3,7 @@ set -eux -o pipefail
 
 export DOCKER_CONTENT_TRUST=1
 
-IMAGE_NAME=backenddevelopersltd/compute-horde-dct-pull:v0-latest 
+IMAGE_NAME=kkowalskireef/compute-horde-dct-pull:v0-latest
 
 docker build \
 	--platform=linux/amd64 \

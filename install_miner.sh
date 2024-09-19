@@ -137,7 +137,7 @@ version: '3.7'
 services:
 
   miner-runner:
-    image: backenddevelopersltd/compute-horde-miner-runner:v0-latest
+    image: kkowalskireef/compute-horde-miner-runner:v0-latest
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

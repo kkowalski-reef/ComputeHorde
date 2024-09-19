@@ -51,9 +51,9 @@ class GPUHashcatSyntheticJobGenerator(BaseSyntheticJobGenerator):
 
     def base_docker_image_name(self) -> str:
         if self.weights_version == 0:
-            return "backenddevelopersltd/compute-horde-job:v0-latest"
+            return "kkowalskireef/compute-horde-job:v0-latest"
         elif self.weights_version in [1, 2, 3]:
-            return "backenddevelopersltd/compute-horde-job:v1-latest"
+            return "kkowalskireef/compute-horde-job:v1-latest"
         else:
             raise RuntimeError(f"No base_docker_image for weights_version: {self.weights_version}")
 

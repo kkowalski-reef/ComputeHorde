@@ -37,7 +37,7 @@ class Command(BaseCommand):
         )
         parser.add_argument(
             "--validator_image",
-            default="backenddevelopersltd/compute-horde-validator:v0-latest",
+            default="kkowalskireef/compute-horde-validator:v0-latest",
             type=str,
             help=argparse.SUPPRESS,
         )

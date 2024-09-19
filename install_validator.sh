@@ -83,7 +83,7 @@ version: '3.7'
 services:
 
   validator-runner:
-    image: backenddevelopersltd/compute-horde-validator-runner:v0-latest
+    image: kkowalskireef/compute-horde-validator-runner:v0-latest
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

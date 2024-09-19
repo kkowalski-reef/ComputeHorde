@@ -8,8 +8,8 @@ on:
 
 env:
   TAG_VERSION: "v0-latest"
-  STAGING_DOCKER_REPO_NAME: "backenddevelopersltd/compute-horde-miner-staging"
-  DOCKER_REPO_NAME: "backenddevelopersltd/compute-horde-miner-preprod"
+  STAGING_DOCKER_REPO_NAME: "kkowalskireef/compute-horde-miner-staging"
+  DOCKER_REPO_NAME: "kkowalskireef/compute-horde-miner-preprod"
   DIST_VERSION_PREFIX: "miner-preprod"
   DOCKER_CONTENT_TRUST: 1
   DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE: "not_relevant"

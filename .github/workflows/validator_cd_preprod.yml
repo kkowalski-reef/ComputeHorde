@@ -8,8 +8,8 @@ on:
 
 env:
   TAG_VERSION: "v0-latest"
-  STAGING_DOCKER_REPO_NAME: "backenddevelopersltd/compute-horde-validator-staging"
-  DOCKER_REPO_NAME: "backenddevelopersltd/compute-horde-validator-preprod"
+  STAGING_DOCKER_REPO_NAME: "kkowalskireef/compute-horde-validator-staging"
+  DOCKER_REPO_NAME: "kkowalskireef/compute-horde-validator-preprod"
   DIST_VERSION_PREFIX: "validator-preprod"
   DOCKER_CONTENT_TRUST: 1
   DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE: "not_relevant"

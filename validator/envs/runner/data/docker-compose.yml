@@ -26,7 +26,7 @@ services:
       <<: *logging
 
   app:
-    image: backenddevelopersltd/${VALIDATOR_IMAGE_REPO}:v0-latest
+    image: kkowalskireef/${VALIDATOR_IMAGE_REPO}:v0-latest
     pull_policy: always
     healthcheck:
       test: wget -q --spider 127.0.0.1:8000/admin/login/ || exit 1
@@ -49,7 +49,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   celery-worker:
-    image: backenddevelopersltd/${VALIDATOR_IMAGE_REPO}:v0-latest
+    image: kkowalskireef/${VALIDATOR_IMAGE_REPO}:v0-latest
     pull_policy: always
     init: true
     healthcheck:
@@ -73,7 +73,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   celery-beat:
-    image: backenddevelopersltd/${VALIDATOR_IMAGE_REPO}:v0-latest
+    image: kkowalskireef/${VALIDATOR_IMAGE_REPO}:v0-latest
     pull_policy: always
     init: true
     restart: unless-stopped
@@ -92,7 +92,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   connect-facilitator:
-    image: backenddevelopersltd/${VALIDATOR_IMAGE_REPO}:v0-latest
+    image: kkowalskireef/${VALIDATOR_IMAGE_REPO}:v0-latest
     pull_policy: always
     init: true
     restart: unless-stopped
@@ -112,7 +112,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   nginx:
-    image: backenddevelopersltd/compute-horde-validator-nginx:v0-latest
+    image: kkowalskireef/compute-horde-validator-nginx:v0-latest
     restart: unless-stopped
     healthcheck:
       test: wget -q --spider 0.0.0.0:80/admin/login/ || exit 1
@@ -130,11 +130,11 @@ services:
       - "com.centurylinklabs.watchtower.enable=true"
 
   dct-pull:
-    image: backenddevelopersltd/compute-horde-dct-pull:v0-latest
+    image: kkowalskireef/compute-horde-dct-pull:v0-latest
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: backenddevelopersltd/compute-horde-dct-pull:v0-latest backenddevelopersltd/${VALIDATOR_IMAGE_REPO}:v0-latest backenddevelopersltd/compute-horde-validator-nginx:v0-latest
+    command: kkowalskireef/compute-horde-dct-pull:v0-latest kkowalskireef/${VALIDATOR_IMAGE_REPO}:v0-latest kkowalskireef/compute-horde-validator-nginx:v0-latest
     logging:
       <<: *logging
     labels:
