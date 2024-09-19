@@ -23,6 +23,7 @@ jobs:
 
       - name: Set up DCT delegated key
         run: |
+          touch tmp.key && chmod 600 tmp.key
           echo "${{ secrets.DOCKERHUB_DELEGATED_KEY }}" > tmp.key
           docker trust key load tmp.key --name gh_action
 
