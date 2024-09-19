@@ -1,6 +1,7 @@
 name: "CD: miner (pre-prod)"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'deploy-miner-preprod'

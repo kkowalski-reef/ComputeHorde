@@ -1,6 +1,7 @@
 name: "CD: validator runner (pre-prod)"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'deploy-validator-runner-preprod'

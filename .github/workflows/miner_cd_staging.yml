@@ -1,6 +1,7 @@
 name: "CD: miner (staging)"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'deploy-miner-staging'

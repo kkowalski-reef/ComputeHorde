@@ -1,6 +1,7 @@
 name: "CD: executor (pre-prod)"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'deploy-executor-preprod'
