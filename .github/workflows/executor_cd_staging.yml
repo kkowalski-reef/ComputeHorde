@@ -23,10 +23,8 @@ jobs:
 
       - name: Set up DCT delegated key
         run: |
-          DELEGATION_KEY_FILE="$HOME/.docker/trust/private/${{ secrets.DOCKERHUB_DELEGATED_KEY_ID }}.key"
-          mkdir -p $(dirname "$DELEGATION_KEY_FILE")
-          echo "${{ secrets.DOCKERHUB_DELEGATED_KEY }}" > "$DELEGATION_KEY_FILE"
-          chmod 600 "$DELEGATION_KEY_FILE"
+          echo "${{ secrets.DOCKERHUB_DELEGATED_KEY }}" > tmp.key
+          docker trust key load tmp.key --name gh_action
 
       - name: Docker build and push
         run: |
