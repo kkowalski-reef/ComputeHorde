@@ -7,12 +7,11 @@ on:
       - 'deploy-executor-prod'
 
 env:
-  TAG_VERSION: "v0-latest"
   STAGING_DOCKER_REPO_NAME: "kkowalskireef/compute-horde-executor-staging"
+  TAG_VERSION: "v0-latest"
   DOCKER_REPO_NAME: "kkowalskireef/compute-horde-executor"
   DIST_VERSION_PREFIX: "executor-prod"
   DOCKER_CONTENT_TRUST: 1
-  DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE: "not_relevant"
 
 jobs:
   deploy:
@@ -28,7 +27,7 @@ jobs:
           key-id: "${{ secrets.DOCKERHUB_DELEGATED_KEY_ID }}"
           key-content: "${{ secrets.DOCKERHUB_DELEGATED_KEY }}"
 
-      - name: Docker build and push
+      - name: Docker build, sign and push
         run: |
           IMAGE_NAME="${DOCKER_REPO_NAME}:${TAG_VERSION}"
           SHA_IMAGE_NAME="${STAGING_DOCKER_REPO_NAME}:git-${GITHUB_SHA}"

@@ -7,12 +7,11 @@ on:
       - 'deploy-executor-preprod'
 
 env:
-  TAG_VERSION: "v0-preprod"
   STAGING_DOCKER_REPO_NAME: "kkowalskireef/compute-horde-executor-staging"
+  TAG_VERSION: "v0-preprod"
   DOCKER_REPO_NAME: "kkowalskireef/compute-horde-executor"
   DIST_VERSION_PREFIX: "executor-preprod"
   DOCKER_CONTENT_TRUST: 1
-  DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE: "not_relevant"
 
 jobs:
   deploy:
