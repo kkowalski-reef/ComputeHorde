@@ -21,13 +21,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up DCT delegated key
-        run: |
-          DELEGATION_KEY_FILE="$HOME/.docker/trust/private/${{ secrets.DOCKERHUB_DELEGATED_KEY_ID }}.key"
-          mkdir -p $(dirname "$DELEGATION_KEY_FILE")
-          touch "$DELEGATION_KEY_FILE"
-          chmod 600 "$DELEGATION_KEY_FILE"
-          echo "${{ secrets.DOCKERHUB_DELEGATED_KEY }}" > "$DELEGATION_KEY_FILE"
+      - uses: ./.github/actions/install-dct-key
+        with:
+          key-id: "${{ secret.DOCKERHUB_DELEGATED_KEY_ID }}"
+          key-content: "${{ secret.DOCKERHUB_DELEGATED_KEY }}"
 
       - name: Docker build and push
         run: |
