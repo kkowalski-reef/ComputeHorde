@@ -7,7 +7,7 @@ on:
       - 'deploy-executor-preprod'
 
 env:
-  STAGING_DOCKER_REPO_NAME: "kkowalskireef/compute-horde-executor-staging"
+  STAGING_DOCKER_REPO_NAME: "kkowalskireef/compute-horde-executor-staging-tryagain"
   TAG_VERSION: "v0-preprod"
   DOCKER_REPO_NAME: "kkowalskireef/compute-horde-executor"
   DIST_VERSION_PREFIX: "executor-preprod"
