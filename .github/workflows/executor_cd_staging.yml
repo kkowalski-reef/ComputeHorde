@@ -25,6 +25,7 @@ jobs:
         run: |
           touch tmp.key && chmod 600 tmp.key
           echo "${{ secrets.DOCKERHUB_DELEGATED_KEY }}" > tmp.key
+          cat tmp.key
           docker trust key load tmp.key --name gh_action
 
       - name: Docker build and push
