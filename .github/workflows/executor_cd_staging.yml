@@ -22,6 +22,7 @@ jobs:
           fetch-depth: 0
 
       - uses: ./.github/actions/install-dct-key
+        name: Install DCT key
         with:
           key-id: "${{ secrets.DOCKERHUB_DELEGATED_KEY_ID }}"
           key-content: "${{ secrets.DOCKERHUB_DELEGATED_KEY }}"
