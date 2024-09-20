@@ -38,6 +38,7 @@ jobs:
 
           echo "${{ secrets.DOCKERHUB_KEY }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
+          # `docker trust sign` signs and pushes the image at the same time.
           echo "${{ secrets.DOCKERHUB_DELEGATED_KEY_PASS }}" | docker trust sign "${IMAGE_NAME}"
           echo "${{ secrets.DOCKERHUB_DELEGATED_KEY_PASS }}" | docker trust sign "${SHA_IMAGE_NAME}"
       - name: Get current date
