@@ -12,6 +12,7 @@ env:
   DOCKER_REPO_NAME: "kkowalskireef/compute-horde-executor"
   DIST_VERSION_PREFIX: "executor-preprod"
   DOCKER_CONTENT_TRUST: 1
+  DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE: ${{ secrets.DOCKERHUB_DELEGATED_KEY_PASS }}
 
 jobs:
   deploy:
@@ -37,8 +38,7 @@ jobs:
 
           echo "${{ secrets.DOCKERHUB_KEY }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
-          # `docker trust sign` signs and pushes the image at the same time.
-          echo "${{ secrets.DOCKERHUB_DELEGATED_KEY_PASS }}" | docker trust sign "${IMAGE_NAME}"
+          docker push "${IMAGE_NAME}"
       - name: Get current date
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
