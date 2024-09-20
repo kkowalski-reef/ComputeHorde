@@ -25,8 +25,8 @@ jobs:
         run: |
           touch tmp.key && chmod 600 tmp.key
           echo "${{ secrets.DOCKERHUB_DELEGATED_KEY }}" > tmp.key
-          cat tmp.key
-          docker trust key load tmp.key --name gh_action
+          echo "${{ secrets.DOCKERHUB_DELEGATED_KEY_PASS }}" | docker trust key load tmp.key --name gh_action
+          rm tmp.key
 
       - name: Docker build and push
         run: |
